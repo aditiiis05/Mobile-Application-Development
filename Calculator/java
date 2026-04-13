@@ -1,7 +1,6 @@
-package com.example.calculator;
+package com.example.myapplication;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,40 +18,32 @@ public class MainActivity extends AppCompatActivity {
 
         tvResult = findViewById(R.id.tvResult);
 
-        int[] numberButtons = {
+        int[] nums = {
                 R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3,
                 R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7,
                 R.id.btn8, R.id.btn9, R.id.btnDot
         };
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        for (int id : nums) {
+            findViewById(id).setOnClickListener(v -> {
                 Button b = (Button) v;
                 input += b.getText().toString();
                 tvResult.setText(input);
-            }
-        };
-
-        for (int id : numberButtons) {
-            findViewById(id).setOnClickListener(listener);
+            });
         }
 
-        // Operators
-        findViewById(R.id.btnPlus).setOnClickListener(v -> addOperator("+"));
-        findViewById(R.id.btnMinus).setOnClickListener(v -> addOperator("-"));
-        findViewById(R.id.btnMultiply).setOnClickListener(v -> addOperator("*"));
-        findViewById(R.id.btnDivide).setOnClickListener(v -> addOperator("/"));
-        findViewById(R.id.btnOpen).setOnClickListener(v -> addOperator("("));
-        findViewById(R.id.btnClose).setOnClickListener(v -> addOperator(")"));
+        findViewById(R.id.btnPlus).setOnClickListener(v -> add("+"));
+        findViewById(R.id.btnMinus).setOnClickListener(v -> add("-"));
+        findViewById(R.id.btnMultiply).setOnClickListener(v -> add("*"));
+        findViewById(R.id.btnDivide).setOnClickListener(v -> add("/"));
+        findViewById(R.id.btnOpen).setOnClickListener(v -> add("("));
+        findViewById(R.id.btnClose).setOnClickListener(v -> add(")"));
 
-        // Clear
         findViewById(R.id.btnClear).setOnClickListener(v -> {
             input = "";
             tvResult.setText("0");
         });
 
-        // Equal button
         findViewById(R.id.btnEqual).setOnClickListener(v -> {
             try {
                 double result = eval(input);
@@ -65,13 +56,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void addOperator(String op) {
-        input += op;
+    void add(String v) {
+        input += v;
         tvResult.setText(input);
     }
 
-    // Simple expression evaluator
-    public double eval(final String str) {
+    public double eval(String str) {
         return new Object() {
             int pos = -1, ch;
 
@@ -79,56 +69,37 @@ public class MainActivity extends AppCompatActivity {
                 ch = (++pos < str.length()) ? str.charAt(pos) : -1;
             }
 
-            boolean eat(int charToEat) {
-                while (ch == ' ') nextChar();
-                if (ch == charToEat) {
-                    nextChar();
-                    return true;
-                }
-                return false;
-            }
-
             double parse() {
                 nextChar();
-                double x = parseExpression();
-                if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char) ch);
-                return x;
+                return parseExpression();
             }
 
             double parseExpression() {
                 double x = parseTerm();
-                for (; ; ) {
-                    if (eat('+')) x += parseTerm();
-                    else if (eat('-')) x -= parseTerm();
+                while (true) {
+                    if (ch == '+') { nextChar(); x += parseTerm(); }
+                    else if (ch == '-') { nextChar(); x -= parseTerm(); }
                     else return x;
                 }
             }
 
             double parseTerm() {
                 double x = parseFactor();
-                for (; ; ) {
-                    if (eat('*')) x *= parseFactor();
-                    else if (eat('/')) x /= parseFactor();
+                while (true) {
+                    if (ch == '*') { nextChar(); x *= parseFactor(); }
+                    else if (ch == '/') { nextChar(); x /= parseFactor(); }
                     else return x;
                 }
             }
 
             double parseFactor() {
-                if (eat('+')) return parseFactor();
-                if (eat('-')) return -parseFactor();
+                StringBuilder sb = new StringBuilder();
 
-                double x;
-                int startPos = this.pos;
-
-                if (eat('(')) {
-                    x = parseExpression();
-                    eat(')');
-                } else {
-                    while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
-                    x = Double.parseDouble(str.substring(startPos, this.pos));
+                while ((ch >= '0' && ch <= '9') || ch == '.') {
+                    sb.append((char) ch);
+                    nextChar();
                 }
-
-                return x;
+                return Double.parseDouble(sb.toString());
             }
         }.parse();
     }
