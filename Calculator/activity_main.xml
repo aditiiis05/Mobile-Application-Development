@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/mainLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -53,7 +55,6 @@
             android:textColor="#1E88E5"
             android:layout_marginTop="15dp"/>
 
-        <!-- Buttons -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
