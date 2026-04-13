@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F3F0FF"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/btnWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Open Website"
+        android:backgroundTint="#D6C6F5"
+        android:textColor="#3A2E5C"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:id="@+id/btnCall"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Make Call"
+        android:backgroundTint="#D6C6F5"
+        android:textColor="#3A2E5C"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:id="@+id/btnSMS"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Send SMS"
+        android:backgroundTint="#D6C6F5"
+        android:textColor="#3A2E5C"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:id="@+id/btnEmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Send Email"
+        android:backgroundTint="#D6C6F5"
+        android:textColor="#3A2E5C"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Open Camera"
+        android:backgroundTint="#D6C6F5"
+        android:textColor="#3A2E5C"
+        android:layout_marginBottom="15dp"/>
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Open Map"
+        android:backgroundTint="#D6C6F5"
+        android:textColor="#3A2E5C"/>
+
+</LinearLayout>
