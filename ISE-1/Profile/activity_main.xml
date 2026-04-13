@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="30dp">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="98dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name: Aditi Arun Salokhe."
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: aditisalokhe01@gmail.com"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile No: 9234567892"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="College: D.Y. Patil College of \nEngineering &amp; Technology"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Branch: Computer Science"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Class: 3rd Year"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="25dp"/>
+
+        <Button
+            android:id="@+id/backToLoginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back To Login"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2C3E50"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
