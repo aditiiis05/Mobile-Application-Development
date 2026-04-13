@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
         num1 = findViewById(R.id.num1);
         num2 = findViewById(R.id.num2);
         result = findViewById(R.id.result);
-
-        mainLayout = findViewById(android.R.id.content);
+        mainLayout = findViewById(R.id.mainLayout);
 
         Button add = findViewById(R.id.add);
         Button sub = findViewById(R.id.sub);
@@ -36,16 +34,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate(String op) {
-        String n1 = num1.getText().toString();
-        String n2 = num2.getText().toString();
+        String n1 = num1.getText().toString().trim();
+        String n2 = num2.getText().toString().trim();
 
         if (n1.isEmpty() || n2.isEmpty()) {
             Toast.makeText(this, "Enter both numbers", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        double a = Double.parseDouble(n1);
-        double b = Double.parseDouble(n2);
+        double a, b;
+
+        try {
+            a = Double.parseDouble(n1);
+            b = Double.parseDouble(n2);
+        } catch (Exception e) {
+            Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         double res = 0;
 
         switch (op) {
@@ -69,11 +75,10 @@ public class MainActivity extends AppCompatActivity {
 
         result.setText("Result: " + res);
 
-        // Change background color on click
         int color = Color.rgb(
-                (int)(Math.random()*256),
-                (int)(Math.random()*256),
-                (int)(Math.random()*256)
+                (int)(Math.random() * 256),
+                (int)(Math.random() * 256),
+                (int)(Math.random() * 256)
         );
         mainLayout.setBackgroundColor(color);
     }
