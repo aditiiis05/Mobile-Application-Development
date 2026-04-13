@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F8F9FA">
+
+    <Button
+        android:id="@+id/btnBrowser"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Open Browser"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#5C6BC0"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnCall"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Dial Number"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#26A69A"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Open Camera"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#FF7043"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnEmail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Send Email"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="#AB47BC"/>
+
+</LinearLayout>
